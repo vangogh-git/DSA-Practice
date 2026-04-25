@@ -7,7 +7,6 @@ class Solution {
     
     bool subArrayExists(vector<int>& arr) {
        
-        
         unordered_map<int , bool> m;
         
         int sum = 0;
