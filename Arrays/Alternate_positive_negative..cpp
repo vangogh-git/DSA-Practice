@@ -4,7 +4,7 @@
 class Solution {
   public:
     void rearrange(vector<int> &arr) {
-        // code here
+        
         int n = arr.size();
         
         vector<int> pos;
