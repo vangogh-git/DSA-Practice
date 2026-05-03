@@ -1,7 +1,6 @@
 //Time Complexity: O(n)
 //Space Complexity: O(n)
 
-
 class Solution {
   public:
     void rearrange(vector<int> &arr) {
@@ -19,7 +18,7 @@ class Solution {
                 neg.push_back(arr[i]);
             }
         }
-        
+      
         // now insert into arr the alternative way
         int i=0 , j=0 , k=0;
         int p = pos.size();
