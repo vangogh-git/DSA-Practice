@@ -1,4 +1,4 @@
-// Time Complexity: o(n^2)
+// Time Complexity: o(nlogn) + O(2*n)
 // Space Complexity: O(n)
 // Brute Force Approach
 
