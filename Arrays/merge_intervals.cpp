@@ -2,7 +2,6 @@
 // Space Complexity: O(n)
 // Brute Force Approach
 
-
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
