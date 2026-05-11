@@ -36,7 +36,6 @@ public:
                 else  {
                     break;
                 }
-
             }
 
             ans.push_back({mini , maxi});
