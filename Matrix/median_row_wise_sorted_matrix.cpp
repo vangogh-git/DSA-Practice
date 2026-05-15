@@ -26,3 +26,11 @@ class Solution {
         
     }
 };
+
+
+// Optimal Approach
+// Using Binary Search in a Matrix
+// Time Complexity: O(nlogm * log(maxVal - minVal))
+// Space Complexity: O(1)
+
+
