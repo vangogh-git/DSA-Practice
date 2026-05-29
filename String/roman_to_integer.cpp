@@ -30,4 +30,35 @@ class Solution {
     }
 };
 
+// Optimized Solution
+// Time Complexity : O(n)
+// Space Complexity: O(1)
+
+
+class Solution {
+  public:
+    int romanToDecimal(string &s) {
+        
+        unordered_map<char,int> value = {
+            {'I', 1} , {'V' , 5} , {'X' , 10} , {'L' , 50} ,
+            {'C', 100} , {'D' , 500} , {'M' , 1000}
+        };
+        
+        int ans = 0;
+        
+        for(int i=0 ; i<s.size() ; ) {
+            if( i+1 < s.size() && value[s[i+1]] > value[s[i]] ){
+                ans += value[s[i+1]] - value[s[i]];;
+                i += 2;
+            }
+            else{
+                ans += value[s[i]];
+                i += 1;
+            }
+        }
+        
+        return ans;
+    }
+};
+
 
