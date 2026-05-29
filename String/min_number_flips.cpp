@@ -39,3 +39,41 @@ class Solution {
     }
 };
 
+
+// Optimized Approach
+// Time Complexity : O(n)
+// Space Complexity: O(1)
+
+class Solution {
+  public:
+    int minFlips(string& s) {
+        // code here
+        int cnt_zero = 0;
+        int cnt_one = 0;
+        
+        // for cnt_zero case
+        for(int i=0 ; i<s.size() ; i++) {
+            if(i % 2 == 0 && s[i] != '0') {
+                // even case
+                cnt_zero++;
+            }
+            if(i % 2 != 0 && s[i] != '1') {
+                // odd case
+                cnt_zero++;
+            }
+            if(i % 2 == 0 && s[i] != '1') {
+                // even case
+                cnt_one++;
+            }
+            if(i % 2 != 0 && s[i] != '0') {
+                // odd case
+                cnt_one++;
+            }
+        }
+        
+
+        return min(cnt_zero , cnt_one);
+    }
+};
+
+
