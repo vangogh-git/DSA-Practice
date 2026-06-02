@@ -1,3 +1,6 @@
+// time complexity: O(n)
+// space complexity: O(n)
+
 class Solution {
     private:
     int findSum(int n , int sum) {
