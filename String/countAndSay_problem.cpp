@@ -1,3 +1,7 @@
+//time complexity : O(length * 2^n)
+//space complexity : O(n)
+// using replace function -> brute force approach
+
 class Solution {
     private:
     void solve(int n , string &s) {
