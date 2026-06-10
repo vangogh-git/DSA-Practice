@@ -1,3 +1,7 @@
+//time complexity: O(n)
+//space complexity: O(n)
+// using stack
+
 class Solution {
   public:
     int countMinReversals(string s) {
