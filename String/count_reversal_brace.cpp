@@ -43,3 +43,38 @@ class Solution {
         return (a+1)/2 + (b+1)/2;
     }
 };
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+// optimized solution
+
+class Solution {
+  public:
+    int countMinReversals(string s) {
+        
+        if(s.size() & 1) return -1;
+        
+        int open = 0;
+        int reversals = 0;
+        for(int i=0 ; i<s.size() ; i++) {
+            if(s[i] == '{') {
+                open++;
+            }
+            else{
+                // s[i] == '}' in this case
+                if(open > 0) {
+                    open--;
+                }
+                else{
+                    reversals++;
+                    open++;
+                }
+            }
+        }
+        
+        // remaining open braces
+        reversals += (open/2);
+        return reversals;
+        
+    }
+};
