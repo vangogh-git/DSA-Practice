@@ -2,6 +2,8 @@
 // Space Complexity : O(n)
 
 // we use hashmap + max heap as max heap takes only log n time to complete
+// this code also gives an idea of how pair works in a priority queue 
+// and how we can make a custom comparator...
 
 class Solution {
 public:
