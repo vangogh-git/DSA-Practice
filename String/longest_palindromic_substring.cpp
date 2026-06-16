@@ -1,6 +1,6 @@
 // time complexity : O(n^3)
 // space complexty : O(1)
-// Brute Forcce Approach
+// Brute Force Approach
 
 
 class Solution {
@@ -30,5 +30,46 @@ class Solution {
         if(ans.size() > 1) return ans;
         else return string(1,s[0]);
         
+    }
+};
+
+// time complexity : O(n^2)
+// space complexty : O(1)
+// Optimized Approach
+
+class Solution {
+  public:
+    string longestPalindrome(string &s) {
+        
+        string res = "";
+        int reslen = 0;
+        int left = 0;
+        int right = 0;
+        for(int i=0 ; i<s.size() ; i++) {
+            // odd length
+            left = i;
+            right = i;
+            while(left >= 0 && right < s.size() && s[left] == s[right]) {
+                if(right - left + 1 > reslen) {
+                    res = s.substr(left , right-left+1);
+                    reslen = right - left + 1;
+                }
+                left--;
+                right++;
+            }
+            
+            // even length
+            left = i;
+            right = i+1;
+            while(left >=0 && right < s.size() && s[left] == s[right]) {
+                if(right - left + 1 > reslen) {
+                    res = s.substr(left , right - left + 1);
+                    reslen = right - left + 1;
+                }
+                left--;
+                right++;
+            }
+        } 
+        return res;  
     }
 };
