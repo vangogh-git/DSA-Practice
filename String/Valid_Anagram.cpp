@@ -31,3 +31,25 @@ public:
         return true;
     }
 };
+
+// same code just no need to use find()
+//// important to check size of each is equal or not in the beginning itself expected in interviews/////
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.size() != t.size()) return false;
+        unordered_map<char,int> freq;
+        for(char ch : s) {
+            freq[ch]++;
+        }
+        for(char ch : t) {
+            if(freq[ch] == 0) return false;
+            freq[ch]--;
+        }
+        for(auto it : freq) {
+            if(it.second != 0) return false; 
+        }
+        return true;
+    }
+};
