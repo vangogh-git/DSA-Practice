@@ -1,5 +1,7 @@
 // time complexity : O(n)
 // space complexity : O(n) in case of general string and O(1) in case of only lowercase a-z
+// Note: we have used find() here now we need to understand that find() usually takes O(logn) time put since i am using it for unordered_map 
+// which is based on hasing and not maps which are based on balanced BST hence it takes only O(1) time.
 
 
 class Solution {
