@@ -46,3 +46,35 @@ public:
         return nums[i-1];
     }
 };
+
+// time complexity : O(n)
+// space complexity : O(1)
+// Using BOYER MOORE'S VOTING ALGORITHM
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int element = nums[0];
+        int cnt = 1;
+        for(int i=1 ; i<nums.size() ; i++) {
+            if(nums[i] == element) {
+                cnt++;
+            }
+            else {
+                cnt--;
+                if(cnt == 0) {
+                    element = nums[i];
+                    cnt = 1;
+                }
+            }
+        }
+        cnt = 0;
+        for(int i=0 ; i<nums.size() ; i++) {
+            if(nums[i]  == element) {
+                cnt++;
+            }
+        }
+        if(cnt > nums.size()/2) return element;
+        else return -1;
+    }    
+};
