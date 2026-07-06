@@ -8,6 +8,8 @@ using namespace std;
 bool validShuffle(string &str1 , string &str2 , string &shuffle) {
     unordered_map<char,int> freq;
     
+    if(str1.size() + str2.size() != shuffle.size() ) return false;
+    
     // fill the hashmap
     for(int i=0 ; i<str1.size() ; i++) {
         freq[str1[i]]++;
@@ -41,6 +43,7 @@ int main() {
     
     string shuffle;
     cin >> shuffle;
+    
     
   if(validShuffle(str1 , str2 , shuffle) ) {
       cout << "yes" << endl;
