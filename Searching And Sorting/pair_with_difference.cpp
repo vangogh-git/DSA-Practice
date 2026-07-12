@@ -25,7 +25,7 @@ class Solution {
   public:
     bool findPair(vector<int> &arr, int x) {
         int n = arr.size();
-        
+        if(n == 1 || n == 0) return false;
         sort(arr.begin() , arr.end());
         
         for(int i=0 ; i<n ; i++) {
