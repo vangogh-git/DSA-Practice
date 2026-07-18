@@ -21,6 +21,9 @@ class Solution {
 // here the time and space complexities is same but it is more optimized because
 // we are taking the advantage of step array and k value for jumping to only useful indexes and skipping unnecessary.
 
+// time complexity : O(n)
+// space complexity : O(1)
+
 class Solution {
   public:
     int findStepKeyIndex(vector<int>& arr, int k, int x) {
