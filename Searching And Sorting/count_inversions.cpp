@@ -1,3 +1,7 @@
+// time complexity: O(nlogn)
+// space complexity : O(n)
+// using merge sort implementation
+
 class Solution {
     private:
     void merge(vector<int> &arr , int beg , int mid , int end) {
