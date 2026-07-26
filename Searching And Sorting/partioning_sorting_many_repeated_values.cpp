@@ -1,5 +1,6 @@
 // Time Complexity: O(n^2)
 // Space Complexity : O(n) // because of stack used in recursion
+// quickSort + Dutch National Flag Algorithm
 
 #include <bits/stdc++.h> 
 using namespace std;
