@@ -59,3 +59,44 @@ int main() {
 
     return 0;
 }
+
+// can also use inbuilt upper_bound() function which uses binary search internally
+#include <iostream>
+#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<int> arr(N);
+    for(int i=0 ; i<N ; i++) {
+        cin >> arr[i];
+    }
+
+    sort(arr.begin() , arr.end());
+
+    // create prefix sum array
+    vector<long long> prefix(N);
+    prefix[0] = arr[0];
+    for(int i=1; i<N ; i++) {
+        prefix[i] = prefix[i-1] + arr[i];
+    }
+
+    int Q;
+    cin >> Q;
+    while(Q--) {
+        int power;
+        cin >> power;
+
+        int idx = upper_bound(arr.begin(),arr.end(),power) - 
+        arr.begin();
+
+        int count = idx;
+        long long sum = (idx == 0) ? 0 : prefix[idx-1];
+
+        cout << count << " " << sum << endl;
+    }
+    return 0;
+}
