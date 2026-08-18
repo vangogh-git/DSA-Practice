@@ -1,20 +1,23 @@
 // time complexity: O(n)
 // space complexity: O(n)
 
-class Solution {
-    private:
-    int findSum(int n , int sum) {
-        //base case
-        if(n == 0) {
-            return 0;
-        }
-        
-        return n + findSum(n-1 , sum);
+#include <iostream>
+using namespace std;
+
+int Sum(int n) {
+    if(n == 0) return 0;
+    
+    else {
+        return n + Sum(n-1);
     }
-  public:
-    int sumOfNaturals(int n) {
-        
-        int sum = 0;
-        return findSum(n , sum);
-    }
-};
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    int sum = Sum(n);
+    cout << sum;
+
+    return 0;
+}
