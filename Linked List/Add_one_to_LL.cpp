@@ -1,6 +1,6 @@
 // time complexity: O(n)
 // space complexity : O(1)
-
+// brute force approach
 
 /* Structure of linked list Node
 class Node {
