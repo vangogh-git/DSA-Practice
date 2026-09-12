@@ -34,8 +34,8 @@ class Solution {
 };
 
 
-// time complexity : O(n+m)
-// space complexity:  O(1)
+// time complexity : O(n logn)
+// space complexity : O(1)
 // optimized Approach
 
 /* Structure of linked list Node
