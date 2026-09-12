@@ -1,5 +1,5 @@
 // time complexity : O(nlogn)
-// space complexity : O(1)
+// space complexity : O(log n)
 
 /* Structure of linked list Node
 class Node {
