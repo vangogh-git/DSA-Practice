@@ -142,3 +142,80 @@ class Solution {
         
     }
 };
+
+
+// time complexity : O(nlogn)
+// space complexity : O(1)
+// Optimized Approach
+
+/* Linked List Node Structure
+class Node {
+  public:
+    int data;
+    Node* next;
+    Node(int x){
+        data = x;
+        next = nullptr;
+    }
+};
+*/
+class Solution {
+    private: 
+        Node* merge(Node* &head1 , Node* &head2) {
+            Node* temp1 = head1;
+            Node* temp2 = head2;
+
+            Node* newNode = new Node(-1);
+            Node* t = newNode;
+
+            while(temp1 != NULL && temp2 != NULL) {
+               if(temp1 -> data <= temp2 -> data) {
+                   t -> next = temp1;
+                   temp1 = temp1 -> next;
+               } 
+               else {
+                    t -> next = temp2;
+                    temp2 = temp2 -> next;   
+               }
+               t = t -> next;
+            }
+
+            while(temp1 != NULL) {
+                t -> next = temp1;
+                temp1 = temp1 -> next;
+                t = t -> next;
+            }
+
+            while(temp2 != NULL) {
+                t -> next = temp2;
+                temp2 = temp2 -> next;
+                t = t -> next;
+            }
+
+            return newNode -> next;
+        }
+  public:
+    Node* mergeKLists(vector<Node*>& arr) {
+        
+        int n = arr.size();
+        if(n == 0) {
+            return NULL;
+        }
+        
+        while(n > 1) {
+            int index = 0;
+            for(int i=0 ; i<n ; i+=2) {
+                if(i+1 == n) {
+                    arr[index] = arr[i];
+                }
+                else {
+                    arr[index]= merge(arr[i] , arr[i+1]);
+                }
+                index++;
+            }
+            n = index;
+        }
+        
+        return arr[0];
+    }
+};
