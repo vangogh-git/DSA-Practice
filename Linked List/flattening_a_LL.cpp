@@ -1,5 +1,5 @@
-// t.c : 
-// s.c :
+// t.c : O(n*m) where m is the number of bottom LL
+// s.c : O(1)
 // brute force approach -> Time Limit Exceeded
 
 /* Structure of Linked List Node
@@ -69,5 +69,58 @@ class Solution {
         }
         
         return head;
+    }
+};
+
+// t.c : O(n log n)
+// s.c : O(n)
+// Optimized approach : Using MinHeap
+
+/* Structure of Linked List Node
+class Node {
+public:
+    int data;
+    Node* next;
+    Node* bottom;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+        bottom = nullptr;
+    }
+};*/
+
+class compare {
+    public:
+    bool operator() (Node* a , Node* b) {
+        return a -> data > b -> data;
+    }
+};
+
+class Solution {
+  public:
+    Node* flatten(Node* head) {
+        priority_queue<Node* , vector<Node*> , compare> pq;
+        
+        Node* curr = head;
+        while(curr != NULL) {
+            Node* prev = curr;
+            while(prev != NULL) {
+                pq.push(prev);
+                prev = prev -> bottom;
+            }
+            curr = curr -> next;
+        }
+        
+        Node* newNode = new Node(-1);
+        Node* temp = newNode;
+        while(!pq.empty()) {
+            Node* smallest = pq.top();
+            pq.pop();
+            temp -> bottom = smallest;
+            temp = temp -> bottom;
+        }
+        
+        return newNode -> bottom;
     }
 };
