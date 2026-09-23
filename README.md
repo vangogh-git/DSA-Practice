@@ -2,7 +2,6 @@
 My daily DSA journey
 
 🟢 Level 1: Basics + Easy Wins (Build momentum)
-
 Start here to warm up:
 
 Find minimum no. of jumps to reach end of array
