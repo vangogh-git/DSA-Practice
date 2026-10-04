@@ -1,5 +1,5 @@
 // time complexity : O(n)
-// space complexity : O(n) // recursive stack call
+// space complexity : O(h) // recursive call stack where h is the height of the tree
 
 /* Structure of Binary Tree Node
 class Node {
