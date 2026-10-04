@@ -1,3 +1,6 @@
+// time complexity : O(n)
+// space complexity : O(h) // recursive call stack where h is the height of the tree
+
 /* Structure of Tree Node
 class Node {
   public:
