@@ -36,3 +36,44 @@ class Solution {
         
     }
 };
+
+// time complexity : O(n)
+// space complexity : O(n) 
+// iterative stack based approach
+
+/* Structure of Tree Node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = nullptr;
+        right = nullptr;
+    }
+};*/
+
+class Solution {
+  public:
+    vector<int> preOrder(Node* root) {
+        
+        vector<int> ans;
+        stack<Node*> s;
+        
+        Node* curr = root;
+        while(curr!=nullptr || !s.empty()) {
+            while(curr != NULL) {
+                ans.push_back(curr->data);
+                s.push(curr);
+                curr = curr -> left;
+            }
+            
+            curr = s.top();
+            s.pop();
+            curr = curr -> right;
+        }
+        return ans;
+    }
+};
