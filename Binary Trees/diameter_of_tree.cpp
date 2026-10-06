@@ -16,6 +16,45 @@ class Node {
 };*/
 
 class Solution {
+    int ans = 0;
+    int height(Node* root) {
+        if(root == NULL) {
+            return 0;
+        }
+        else {
+            int lh = height(root->left);
+            int rh = height(root->right);
+            ans = max(ans , lh+rh);
+            return max(lh,rh)+1;
+        }
+    }
+  public:
+    int diameter(Node* root) {
+        height(root);
+        return ans;
+    }
+};
+
+
+
+// time complexity : O(n)
+// space complexity : O(h)
+// optimized approach
+
+/* Structure of binary tree Node 
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};*/
+
+class Solution {
     private:
     pair<int,int> diameterFast(Node* root) {
         if(root == NULL) {
