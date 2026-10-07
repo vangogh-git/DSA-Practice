@@ -45,3 +45,52 @@ class Solution {
         
     }
 };
+
+// time complexity : O(n)
+// space complexity: O(h)
+
+/* Structure of binary tree node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};*/
+
+class Solution {
+    private:
+    
+    pair<bool,int> balancedFast(Node* root) {
+        if(root == NULL) {
+            pair<bool,int> p = make_pair("true",0);
+            return p;
+        }
+        else {
+            pair<bool,int> left = balancedFast(root->left);
+            pair<bool,int> right = balancedFast(root->right);
+            
+            bool diff = abs(left.second-right.second) <= 1;
+            
+            pair<bool,int> ans;
+            ans.second = max(left.second , right.second)+1;
+            
+            if(left.first && right.first && diff) {
+                ans.first = true;
+            }
+            else {
+                ans.first = false;
+            }
+            return ans;
+        }
+    }
+    
+  public:
+    bool isBalanced(Node* root) {
+        return balancedFast(root).first;
+    }
+};
