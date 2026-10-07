@@ -1,5 +1,6 @@
 // t.c : O(n)
 // s.c : O(n)
+// queue based approach
 
 /* Structure of Binary Tree Node
 class Node {
@@ -51,5 +52,52 @@ class Solution {
             }
         }
         return ans;
+    }
+};
+
+
+// t.c : O(n)
+// s.c : O(n)
+// recursive approach
+
+/* A binary tree node
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+ */
+
+class Solution {
+    private:
+    void solve(Node* root , vector<int> &ans , int level){
+        
+        if(root == NULL){
+            return ;
+        }
+        
+        // if new level is entered into
+        if(level == ans.size()){
+            ans.push_back(root -> data);
+        }
+        
+        solve(root -> left , ans , level + 1);
+        solve(root -> right , ans , level + 1);
+        
+    }
+  public:
+    vector<int> leftView(Node *root) {
+        
+        vector<int> ans;
+        solve(root , ans , 0);
+        return ans;
+        
     }
 };
