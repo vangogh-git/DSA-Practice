@@ -1,5 +1,5 @@
 // t.c : O(n)
-// s.c : O(n)
+// s.c : O(n) because of using unordered map
 
 /* Definition for Node
 class Node {
