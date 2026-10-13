@@ -1,5 +1,5 @@
 // t.c : O(n)
-// s.c : O(n) where h is the height of the recursive stack
+// s.c : O(n)
 
 /* Structure of a Tree Node
 class Node {
