@@ -1,4 +1,4 @@
-// t.c : O(h)
+// t.c : O(n)
 // s.c : O(h)
 // using recursion
 
