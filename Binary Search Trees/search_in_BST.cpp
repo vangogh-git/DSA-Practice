@@ -23,3 +23,57 @@ class Solution {
         
     }
 };
+
+
+// queue based solution
+// t.c : O(n)
+// s.c : O(n)
+
+/* Definition for Node
+class Node {
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    bool search(Node* root, int key) {
+        
+        queue<Node*> q;
+        q.push(root);
+        
+        while(!q.empty()) {
+            Node* temp = q.front();
+            q.pop();
+            
+            if(key > temp -> data) {
+                if(temp -> right) {
+                    q.push(temp->right);
+                }
+                else{
+                    return false;
+                }
+            }
+            if(key < temp -> data) {
+                if(temp -> left) {
+                    q.push(temp->left);
+                }
+                else{
+                    return false;
+                }
+            }
+            
+            if(key == temp -> data) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
