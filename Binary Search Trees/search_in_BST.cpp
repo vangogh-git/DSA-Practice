@@ -77,3 +77,40 @@ class Solution {
         return false;
     }
 };
+
+// t.c : O(n)
+// s.c : O(1)
+// iterative method
+
+/* Definition for Node
+class Node {
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    bool search(Node* root, int key) {
+        Node* temp = root;
+        
+        while(temp != NULL) {
+            if(temp -> data == key) {
+                return true;
+            }
+            else if(temp -> data > key){
+                temp = temp -> left;
+            }
+            else {
+                temp = temp -> right;
+            }
+        }
+        return false;
+    }
+};
