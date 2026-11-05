@@ -65,3 +65,65 @@ class Solution {
         return ans;
     }
 };
+
+// t.c : O(n)
+// s.c : O(1)
+// optimized approach
+
+/* Structure of a Binary Search Tree node
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int x) {
+        data = x;
+        left = nullptr;
+        right = nullptr;
+    }
+}; */
+
+class Solution {
+    Node* findsuccessor(Node* root , int key) {
+        
+        Node* suc = NULL;
+        while(root != NULL) {
+            if(root -> data <= key) {
+                root = root -> right;
+            }
+            else {
+                suc = root;
+                root = root -> left;
+            }
+        }
+        return suc;
+    }
+    
+    Node* findpredecessor(Node* root , int key) {
+        Node* pre = NULL;
+        
+        while(root != NULL) {
+            if(root -> data >= key) {
+                root = root->left;
+            }
+            else  {
+                pre = root;
+                root = root -> right;
+            }
+        }
+        return pre;
+    }
+  public:
+    vector<Node*> findPreSuc(Node* root, int key) {
+        
+        Node* pre = findpredecessor(root,key);
+        Node* suc = findsuccessor(root,key);
+        
+        vector<Node*> ans;
+        ans.push_back(pre);
+        ans.push_back(suc);
+        
+        return ans;
+    }
+};
