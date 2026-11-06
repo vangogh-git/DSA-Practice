@@ -1,3 +1,50 @@
+// t.c : O(h)
+// s.c : O(1)
+// optimized approach
+
+/* Structure of a Binary Search Tree node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node* findLCA(Node* root, Node* n1, Node* n2) {
+        
+        Node* ans = NULL;
+        
+        while(root != NULL) {
+            if(root->data > n1->data && root->data > n2->data) {
+                ans = root;
+                root = root->left;
+            }
+            else if(root->data < n1->data && root->data < n2->data) {
+                ans = root;
+                root = root->right;
+            }
+            else {
+                ans = root;
+                break;
+            }
+        }
+        return ans;
+        
+    }
+};
+
+
+
+
 // t.c : O(n)
 // s.c : O(h)
 // brute force approach
