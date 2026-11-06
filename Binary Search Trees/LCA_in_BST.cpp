@@ -46,3 +46,77 @@ class Solution {
         
     }
 };
+
+//t.c : O(n)
+// s.c : O(n)
+
+/* Structure of a Binary Search Tree node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+*/
+
+class Solution {
+    void finda1(Node* root , vector<Node*> &a1 , Node* n1) {
+        while(root != NULL) {
+            a1.push_back(root);
+            if(root -> data < n1->data) {
+                root = root->right;
+            }
+            else if(root -> data > n1->data) {
+                root = root->left;
+            }
+            else{
+                // found n1
+                break;
+            }
+        }
+    }
+    
+    void finda2(Node* root , vector<Node*> &a2 , Node* n2) {
+        while(root != NULL) {
+            a2.push_back(root);
+            if(root -> data < n2->data) {
+                root = root->right;
+            }
+            else if(root -> data > n2->data) {
+                root = root->left;
+            }
+            else{
+                // found n2
+                break;
+            }
+        }
+    }
+  public:
+    Node* findLCA(Node* root, Node* n1, Node* n2) {
+        
+        vector<Node*> a1;
+        vector<Node*> a2;
+        
+        finda1(root,a1,n1);
+        finda2(root,a2,n2);
+        
+        int  i=0 , j=0;
+        Node* ans = NULL;
+        while(i < a1.size() && j < a2.size()) {
+            if(a1[i] == a2[j]) {
+                ans = a1[i];
+            }
+            i++;
+            j++;
+        }
+        return ans;
+        
+        
+    }
+};
