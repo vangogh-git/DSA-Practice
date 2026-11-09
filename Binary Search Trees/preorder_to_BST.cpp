@@ -58,3 +58,43 @@ class Solution {
         return ans;
     }
 };
+
+
+// t.c : O(3n) ~ O(n)
+// s.c : O(h)
+
+/* Structure of a Tree Node
+class Node {
+  public:
+    int data;
+    Node *left, *right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+    private:
+    Node* solve(vector<int> &pre, int &preIndex , int upperbound) {
+        if(preIndex == pre.size() || pre[preIndex] > upperbound) {
+            return NULL;
+        }
+        
+        Node* root = new Node(pre[preIndex]);
+        preIndex++;
+        
+        root -> left = solve(pre , preIndex , root->data);
+        root -> right = solve(pre , preIndex , upperbound);
+        return root;
+    }
+  public:
+    Node* preToBST(vector<int>& pre) {
+        
+        int upperbound = INT_MAX;
+        int preIndex = 0;
+        return solve(pre , preIndex , upperbound);
+    }
+};
