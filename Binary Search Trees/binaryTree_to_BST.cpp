@@ -17,9 +17,9 @@ struct Node
 */
 class Solution {
     private:
-    void findAns(Node* root , vector<int> arr , int &i) {
+    void findAns(Node* root , vector<int> &arr , int &i) {
         if(root == NULL) return ;
-        if(i > arr.size()) return ;
+        if(i >= arr.size()) return ;
         findAns(root->left,arr,i);
         root-> data = arr[i];
         i++;
