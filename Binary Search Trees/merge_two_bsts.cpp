@@ -1,5 +1,5 @@
-// t.c : O(n)
-// s.c : O(n)
+// t.c : O(n+m log n+m)
+// s.c : O(n+m)
 
 /* Structure of a Binary Search Tree node
 class Node {
