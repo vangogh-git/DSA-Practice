@@ -1,3 +1,8 @@
+//t.c : O(n+m)
+// s.c : O(n+m)
+// better approach
+
+
 // t.c : O(n+m log n+m)
 // s.c : O(n+m)
 
